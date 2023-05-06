@@ -3,7 +3,7 @@ const HomePage = () => {
     <>
         <div className="row">
             <div className="col">
-                <h2>Home Page</h2>
+                <h1>Home Page</h1>
             </div>
         </div>
     </>
