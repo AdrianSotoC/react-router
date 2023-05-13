@@ -1,4 +1,16 @@
+import { useState } from "react";
+import axios from "axios";
+
 const UseStatePage = () => {
+
+  const [customers, setCustomers] = useState([]);
+
+  const getUsers = async () => {
+    const resp = await axios.get("https://jsonplaceholder.typicode.com/users")
+    console.log(resp.data)
+    setCustomers(resp.data)
+  }
+
   return (
     <>
       <header>
@@ -10,19 +22,17 @@ const UseStatePage = () => {
       </header>
       <main className="row">
         <article className="col">
-          <button type="button" class="btn btn-primary">
-          Users
+          <button type="button" class="btn btn-primary" onClick={getUsers}>
+          Get Users
           </button>
         </article>
       </main>
       <section className="row">
         <article className="col">
         <ul className="list-group">
-          <li className="list-group-item">An item</li>
-          <li className="list-group-item">A second item</li>
-          <li className="list-group-item">A third item</li>
-          <li className="list-group-item">A fourth item</li>
-          <li className="list-group-item">And a fifth one</li>
+          {
+            customers.map((customer) => (<li key={customer.id} className="list-group-item">{customer.name}</li>))
+          }
         </ul>
         </article>
       </section>
