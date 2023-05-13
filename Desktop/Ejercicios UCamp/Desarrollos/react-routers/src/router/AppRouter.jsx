@@ -6,6 +6,7 @@ import NavBar from "../components/NavBar";
 import CustomersPage from "../pages/CustomersPage";
 import Products from "../pages/Products";
 import CustomerPage from "../pages/CustomerPage";
+import UseStatePage from "../pages/UseStatePage";
 
 const AppRouter = () => {
     return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
                     <Route path="/customers" element={<CustomersPage/>} />
                     <Route path="/products" element={<Products/>}/>
                     <Route path="/customers/:id" element={<CustomerPage/>} />
+                    <Route path="/use-state" element={<UseStatePage/>} />
 
                     <Route path="/*" element={<Navigate to="/home"/>} />
                 </Routes>
